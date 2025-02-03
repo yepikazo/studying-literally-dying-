@@ -3,6 +3,58 @@
 #include <vector> // untuk vector
 using namespace std;
 
+
+//enum unchangeable value ln135 execute
+
+enum level{ easy = 25, normal, hard}; // normal adalah easy tambah 1 dan hard adalah normal tambah 1, jika tidak diberi nilai pada awal(easy) maka easy bernilai 0
+
+void rimsvek(string nama, string noktp){ //void tidak dapat  mengembalikan nilai
+    cout << "omke gams" << endl;
+    cout << "=======================\n";
+    cout << "nama   : " << nama << endl;
+    cout << "no ktp : " << noktp << endl;
+}
+
+void suku(string nama = "jawa"){
+    cout << nama << endl;
+}
+
+int menghitung(int angkanya){
+    return 2 + angkanya; // return adalah fungsi untuk mengembalikan nilai
+}
+
+int tukarnilai(int &x, int &y){ // & untuk mengakses nilai variabel, digunakan untuk manipulasi nilai yang dipanggil, jika string maka function nya void
+    int z = x;
+    x = y, y = z;
+}
+
+void panggilbilangan(int x[5]){
+    for(int i = 0; i < 5; i++){
+        cout << x[i] << ",";
+    }
+    cout << endl;
+}
+
+int sum(int k) { //fungsi rekursif
+    if (k > 0) {
+        return k + sum(k - 1); //memanggil dirinya sendiri dalam fungsi
+    } else {
+        return 0;
+    }
+}
+
+int atmin =5; // variabel global
+
+//variabel yang dideklarasikan dalam fungsi disebut variabel lokal
+//variabel yang dideklarasikan di luar fungsi disebut variabel global
+
+//oop
+class doxing{ //dalam class dapat mendeklarasikan fungsi void,int etc
+    public:
+        string nama;
+        int id;
+
+};
 int main(){
     int bilangan[5] = {5,7,2,1,3};
     int x = 8;
@@ -18,6 +70,7 @@ int main(){
     //array
 
     string biji[3] = {"apalah","apa","lah"};
+    string kodenuklir[3] = {"177013","24434","7347248"};
     for(string x : biji){
         cout << x << endl;
     }
@@ -127,5 +180,41 @@ int main(){
         cout << j << endl;
     }
 
+    //enum unchangeable value
+
+    enum level nilai = normal;
+    cout << nilai << endl;
+
+    //references
+
+    string sepatu = "aliodas";
+    string &merek = sepatu;
+
+    cout << merek << endl;
+    cout << &merek << endl; //menunjukan alamat dalam bentuk hexadesimal, tujuan untuk memanipulasi data dalam direktori
+
+    //pointer = * menunjukan alamat, 
+    // & menunjukan isi alamat
+    string* ptr = &sepatu;
+    cout << ptr << endl; //menunjukan alamat
+    cout << *ptr << endl; // deferesi
+
+    //function
+    rimsvek(sungut[0],kodenuklir[0]);
+    suku(); //diberi nilai default "jawa"
+    suku("sunda");
+    cout << menghitung(5) << endl;
+    tukarnilai(bilangan[0],bilangan[4]); //mengubah(menukar) nilai dari array bilangan
+    cout << bilangan[0] << "," << bilangan[4] << endl;
+    panggilbilangan(bilangan);//memanggil bilangan menggunakan function
+
+    cout << sum(10) << endl; //menjumlahkan bilangan dari 10 sampai 1, such as factorial thing
+
+    doxing kobo;
+    kobo.nama = "pace";
+    kobo.id = 69;
+
+    cout << kobo.nama <<endl;
+    cout << kobo.id << endl;
     
 }
